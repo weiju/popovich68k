@@ -38,3 +38,37 @@ impl AddressSpace {
         self.chipmem[(addr + 1) as usize] = b;
     }
 }
+
+// This part only gets compiled in test scenarios
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_new() {
+        let addr: AddressSpace = AddressSpace::new();
+        assert_eq!(0, addr.chipmem[0]);
+    }
+
+    #[test]
+    fn test_u8_at() {
+        let mut addr: AddressSpace = AddressSpace::new();
+        addr.chipmem[0] = 12;
+        assert_eq!(12, addr.u8_at(0));
+    }
+
+    #[test]
+    fn test_i8_at() {
+        let mut addr: AddressSpace = AddressSpace::new();
+        addr.chipmem[0] = 254;
+        assert_eq!(-2, addr.i8_at(0));
+    }
+
+    #[test]
+    fn test_set_u8_at() {
+        let mut addr: AddressSpace = AddressSpace::new();
+        addr.set_u8_at(0, 13);
+        assert_eq!(13, addr.u8_at(0));
+    }
+
+}
