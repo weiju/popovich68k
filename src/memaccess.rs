@@ -71,4 +71,18 @@ mod tests {
         assert_eq!(13, addr.u8_at(0));
     }
 
+    #[test]
+    fn test_u16_at() {
+        let mut addr: AddressSpace = AddressSpace::new();
+        addr.chipmem[0] = 0;
+        addr.chipmem[1] = 32;
+        assert_eq!(32, addr.u16_at(0));
+    }
+
+    #[test]
+    fn test_set_u16_at() {
+        let mut addr: AddressSpace = AddressSpace::new();
+        addr.set_u16_at(0, 32123);
+        assert_eq!(32123, addr.u16_at(0));
+    }
 }
