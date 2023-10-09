@@ -3,10 +3,5 @@
 ## Description
 
 This projects is emulates a classic Motorola 68k CPU based system.
-It is an excercise in Rust
-
-# Architecture
-
-This emulator is emulated as a CPU module that works on top of an AddressSpace
-structure
+It is an excercise in Rust and for setting up a CI system with Github Actions
 
