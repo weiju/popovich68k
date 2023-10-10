@@ -1,6 +1,7 @@
 //use std::fmt;
 
 mod memaccess;
+mod cpu;
 
 
 fn main() {
